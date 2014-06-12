@@ -1,6 +1,7 @@
 package com.icy.bluff;
 
 import javax.swing.ImageIcon;
+import javax.swing.text.html.HTMLDocument.HTMLReader.IsindexAction;
 
 /**
  * Enum for the suits
@@ -44,7 +45,11 @@ public class Card implements Comparable<Card> {
 	 * Value of the card
 	 */
 	private Value value;
-
+	
+	/**
+	 * Indicator of selected card.
+	 */
+	private boolean isSelected = false;
 	/**
 	 * Construct a card with given value
 	 * 
@@ -108,6 +113,66 @@ public class Card implements Comparable<Card> {
 			break;
 		}
 
+	}
+	
+	public Card(String suit, String val) {
+		
+		switch (suit) {// suit
+		case "h":
+			this.suit = Suit.HEARTS;
+			break;
+		case "d":
+			this.suit = Suit.DIAMONDS;
+			break;
+		case "s":
+			this.suit = Suit.SPADE;
+			break;
+		case "c":
+			this.suit = Suit.CLUBS;
+			break;
+		}
+		
+		switch (val) {// value
+		case "2":
+			this.value = Value.TWO;
+			break;
+		case "3":
+			this.value = Value.THREE;
+			break;
+		case "4":
+			this.value = Value.FOUR;
+			break;
+		case "5":
+			this.value = Value.FIVE;
+			break;
+		case "6":
+			this.value = Value.SIX;
+			break;
+		case "7":
+			this.value = Value.SEVEN;
+			break;
+		case "8":
+			this.value = Value.EIGHT;
+			break;
+		case "9":
+			this.value = Value.NINE;
+			break;
+		case "10":
+			this.value = Value.TEN;
+			break;
+		case "jack":
+			this.value = Value.JACK;
+			break;
+		case "queen":
+			this.value = Value.QUEEN;
+			break;
+		case "king":
+			this.value = Value.KING;
+			break;
+		case "ace":
+			this.value = Value.ACE;
+			break;
+		}
 	}
 
 	/*
@@ -198,7 +263,14 @@ public class Card implements Comparable<Card> {
 	public boolean equals(Value claim) {
 		return this.value == claim;
 	}
-
+	@Override
+	public boolean equals(Object obj) {
+		// TODO Auto-generated method stub
+		if(obj instanceof Card){
+			return ((Card) obj).value==this.value &&  ((Card) obj).suit == this.suit;
+		}
+		return false;
+	}
 	/**
 	 * Gives the <code>ImageIcon</code> of the card, in order to draw it in gui
 	 * 
@@ -265,5 +337,12 @@ public class Card implements Comparable<Card> {
 		fileName += ".jpg";
 		return new ImageIcon(fileName);
 
+	}
+	
+	public void setSelected(){
+		this.isSelected = !isSelected;
+	}
+	public boolean isSelected() {
+		return isSelected;
 	}
 }
