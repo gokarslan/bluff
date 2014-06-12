@@ -17,6 +17,10 @@ public abstract class Player {
 	 */
 	public ArrayList<Card> hand = new ArrayList<Card>();
 	/**
+	 * Currently selected cards.
+	 */
+	public ArrayList<Card> holding =new ArrayList<Card>();
+	/**
 	 * The number of the player
 	 */
 	protected final int number;
