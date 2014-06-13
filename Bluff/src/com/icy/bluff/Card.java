@@ -1,6 +1,7 @@
 package com.icy.bluff;
 
 import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 import javax.swing.text.html.HTMLDocument.HTMLReader.IsindexAction;
 
 
@@ -30,6 +31,10 @@ public class Card implements Comparable<Card> {
 	 * Indicator of selected card.
 	 */
 	private boolean isSelected = false;
+	/**
+	 * JLabel instance associated with that card.
+	 */
+	public JLabel jcard ;
 	/**
 	 * Construct a card with given value
 	 * 

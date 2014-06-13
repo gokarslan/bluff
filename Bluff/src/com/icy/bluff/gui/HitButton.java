@@ -1,5 +1,6 @@
 package com.icy.bluff.gui;
 
+import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -98,6 +99,9 @@ public class HitButton implements ActionListener {
 			} else {
 				bluff.startANewTurn(claim, player.holding);
 				player.hand.removeAll(player.holding);
+				for (int i = 0; i < player.holding.size(); i++) {
+					bluffGui.playerPanel.remove(player.holding.get(i).jcard);
+				}
 				System.err.println(player.hand.toString());
 				player.holding = new ArrayList<Card>();
 			}
@@ -106,10 +110,18 @@ public class HitButton implements ActionListener {
 		else{
 			bluff.addToTable(player.holding);
 			player.hand.removeAll(player.holding);
+			for (int i = 0; i < player.holding.size(); i++) {
+				bluffGui.playerPanel.remove(player.holding.get(i).jcard);
+			}
 			player.holding = new ArrayList<Card>();
 		}
-		//bluffGui.drawHands();//call the repaint
-
+		
+		//repainti tam beceremedim ama bunu yapýnca repaint gibi oluyor.
+		bluffGui.topPanel.getComponent(0).setVisible(false);
+		bluffGui.topPanel.getComponent(0).setVisible(true);		
+		bluffGui.playerPanel.repaint();
+		bluffGui.repaint();
+		
 	}
 
 }

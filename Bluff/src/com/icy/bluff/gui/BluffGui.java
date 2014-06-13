@@ -134,7 +134,9 @@ public class BluffGui extends JPanel {
 		//this.add(new JPanel(),BorderLayout.SOUTH );
 		Player[] players = this.bluff.players;
 		for (int i = 0; i < players[0].hand.size(); ++i) {
-			this.playerPanel.add(new JLabel(players[0].hand.get(i).getImage()));
+			JLabel cd = new JLabel(players[0].hand.get(i).getImage());
+			this.playerPanel.add(cd);
+			players[0].hand.get(i).jcard = cd;
 		}
 
 		for(int i=0;i<players[1].hand.size();++i){
@@ -172,5 +174,5 @@ public class BluffGui extends JPanel {
 		}
 
 	}
-
+		
 }
