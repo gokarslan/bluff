@@ -38,6 +38,17 @@ public class FoldButton implements ActionListener {
 		bluff.players[0].isFold = true;
 		this.bluffGui.hitButton.setEnabled(false);
 		this.bluffGui.foldButton.setEnabled(false);
+		bluffGui.topPanel.getComponent(0).setVisible(false);
+		bluffGui.topPanel.getComponent(0).setVisible(true);		
+		bluffGui.playerPanel.repaint();
+		bluffGui.repaint();
+		/*try { sleeping cok mantikli degil, diger dosyalarda yazdim
+			Thread.sleep(2000);
+		} catch (InterruptedException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}*/
+		this.bluffGui.bluff.players[1].play();
 
 	}
 

@@ -48,8 +48,7 @@ public class HitButton implements ActionListener {
 
 		} else if (bluff.table.size() == 0) {// it means that is a new turn
 			Value claim = null;
-			switch (Integer.parseInt(bluffGui.claimText.getText().substring(0,
-					2))) {
+			switch (Integer.parseInt(bluffGui.claimText.getText())) {
 			case 2:
 				claim = Value.TWO;
 				break;
@@ -121,6 +120,13 @@ public class HitButton implements ActionListener {
 		bluffGui.topPanel.getComponent(0).setVisible(true);		
 		bluffGui.playerPanel.repaint();
 		bluffGui.repaint();
+		/*try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}*/
+		this.bluffGui.bluff.players[1].play();
 		
 	}
 

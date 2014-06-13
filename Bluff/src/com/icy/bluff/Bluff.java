@@ -48,9 +48,9 @@ public class Bluff {
 			deck[Card.SIZE - i - 1] = new Card(randomList.remove(rand
 					.nextInt(i + 1)));
 		}
-		this.players[0] = new HumanPlayer(deck, 1, this);
+		this.players[0] = new HumanPlayer(deck, 1, null);
 		for (int i = 1; i < Bluff.NUMBEROFPLAYERS; ++i)
-			this.players[i] = new ComputerPlayer(deck, i + 1, this);
+			this.players[i] = new ComputerPlayer(deck, i + 1, null);
 		/*
 		 * The game loop should be in gui or main class, it is used for checking
 		 * while(true){ this.players[0].play(); for (int i = 1; i <

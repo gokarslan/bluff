@@ -2,7 +2,7 @@ package com.icy.bluff;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
-import javax.swing.text.html.HTMLDocument.HTMLReader.IsindexAction;
+;
 
 
 

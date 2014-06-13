@@ -59,8 +59,24 @@ public class OpenButton implements ActionListener {
 		}
 		bluff.table = new ArrayList<Card>();
 		bluff.lastClaim = null;
+		int temp=bluff.lastClaimOwner ;
 		bluff.lastClaimOwner = 0;
 		bluff.numberOfLastCards = 0;
+		bluffGui.topPanel.getComponent(0).setVisible(false);
+		bluffGui.topPanel.getComponent(0).setVisible(true);		
+		bluffGui.playerPanel.repaint();
+		bluffGui.repaint();
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		if(flag)
+			this.bluffGui.bluff.players[0].play();
+		else
+			this.bluffGui.bluff.players[temp-1].play();
+		
 		//TODO RECHECK THE ENABILING 
 		this.bluffGui.openButton.setEnabled(false);
 		this.bluffGui.foldButton.setEnabled(false);

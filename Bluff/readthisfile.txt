@@ -1,31 +1,34 @@
+Merhaba, ilk committe de olan hata vs silmeden gonderiyorum, tekrar en bastan okursan guzel olabilir :)
+
 ERRORS:
-1)Kartlar ayni hizaya gelmiyor
-2)paint, paintcomponent gibi metodlara ihtiyac var
+1)Kartlar ayni hizaya gelmiyor(Kart secme olayinda baya bir error handling yapmak lazim, ayrica claim yeri text yerine 
+list yapsak daha hos olur error olma ihtimali ortadan kalkar diye dusunuyorum)
+2)paint, paintcomponent gibi metodlara ihtiyac var(bunlar da olmadan su an oluyo gibi)
 
 BUTTONS:
-1)HitButton'u yaptim teorik olarak calisiyor, yani arraylistleri(holding, hand, table) dogru guncelliyor ama repaint duzgun olmadigindan goruntu olarak test edemedim
-Hit yaparken claim'i giriyor text'e onu parse ediyorum ama error check yapmadim, simdilik appropriate girisler yapalim sonra errorlari handle ederiz;
-(asdsd falan girme gibi seylerde hata mesaji cikarip lutfen duzgun girin olabilir, ya da text yerine list koyup mecburen sectirebiliriz, 
-secenekleri konusuruz, ilk onceligimiz su an grafigin duzgun cizilmesi bence:)
- oyunu rahatca test edebilmek icin sonrasini hallederiz bir sekilde diye dusunuyorum:))
-2)OpenButton da ayni sekilde, ancak onda butonlarin aktif, pasifligini ayarladim gibi biraz, yine de check etmek lazim
-3)FoldButton da ayni
+Buttonlara basilinca gerekli islemi yaptiktan sonra 2 numarali(index olarak 1) playerin playi cagiriliyo onlarda sirayla bir sonrakini cagiriyolar oynadiktan sonra
+en sonda tekrar human playerin playi cagriliyo, o da butonlari tekrar enable ediyo ve ilgili butona basilmasiyla dongu tekrar baslamis oluyo
+
+Fold butonuna bastiginda kullanici bir kez, o el boyunca kullanica 2-3 sn durup direkt gecebiliriz aslinda
+ama bunu eklemedim su an
 
 
 NOTE:
 1)Butonlarin aktif ve pasif olmasi gereken durumlari yazmadim, mesela el acilinca yeni bir kart dusune kadar open pasif olmali gibi,
 oyun donmeye baslayinca gerekli yerlerde aktif ve pasifligini set ederiz diye dusunuyorum
-2)Grafik cizmeyi halletikten sonra istiyosan commit et ve oyun dongusunu yazayim ben sonra beraber bir deneriz oyunu oyun dongunsunu soyle dusunuyorum
-  oyuncu kart attiktan sonra:
-  repaint (table'daki kartlari ve oyununcunun kartlarini)
-  sirayla bilgisayarlarin play metodlarini cagir(arada sure birakmali)
-  eger herhangi bir bilgisayar kart acarsa, ilgili yerden oyunu baslat
-  oyuncuya sira geldiginde oyuncunun butonlara basmasina gore dongunun ilgili yerinden oyun dongusune don
-  ve her kart atilmasi, acilmasinda repaint'i cagir
+(Bunun buyuk bir kismini yazdim debugging yaparken hatali yerler ortaya cikar zaten)
+2)Oyun dongusu yukarda anlattigim gibi, yalniz tabledaki kart degisimlerine gore ortaya da bir jpanel tarzi
+kartlarin olacagi bir sey lazim ve tabi mumkunse kart atma animasyonu falan gibi
+o animasyonu timerla her seferinde koordinat degistirerek cizip halledebiliriz ama simdilik en
+azindan tableda kartlar gorunse hois olabilir
   
-3) Enumlari gui package'inda kullandigim icin farkli dosyada tanimladim(ayni dosyada public olarak tanimlayamiyoruz sanirim)
-4)jdoclarin hepsini guncellemedim, paint vs degisecegi icin en son bi bakariz dedim
- 
- Kolay gelsin:)
+4)jdoclarin hepsini hala guncellemedim, bu table vs olayini cozunce hallederiz diye dusunuyorum
+5)Onemli: Bu oyun dongusu icinde her playin basinda herkes fold demis mi diye bakmak lazim, ilgili degiskeni
+bluff classinda tanimlamistim ama bakan metod yazmadim sanirim, ama baya basit bir sey senden sonraki
+bakisimda ben halledebilirim yani, unutmamak icin not birakiyorum buraya
+
+
+Sorry for uzun uzadiya yazmam;
+Tekrarda kolay gelsin:)
  -kerim
   

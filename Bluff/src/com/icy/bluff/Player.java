@@ -3,6 +3,8 @@ package com.icy.bluff;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import com.icy.bluff.gui.BluffGui;
+
 /**
  * Superclass for players
  * 
@@ -19,15 +21,15 @@ public abstract class Player {
 	/**
 	 * Currently selected cards.
 	 */
-	public ArrayList<Card> holding =new ArrayList<Card>();
+	public ArrayList<Card> holding = new ArrayList<Card>();
 	/**
 	 * The number of the player
 	 */
 	protected final int number;
 	/**
-	 * The instance of game
+	 * The instance of gui
 	 */
-	protected Bluff bluff;
+	protected BluffGui bluffGui;
 	/**
 	 * The flag of fold
 	 */
@@ -43,9 +45,9 @@ public abstract class Player {
 	 * @param bluff
 	 *            The bluff object
 	 */
-	public Player(Card[] deck, int number, Bluff bluff) {
+	public Player(Card[] deck, int number, BluffGui bluffGui) {
 		this.number = number;
-		this.bluff = bluff;
+		this.bluffGui = bluffGui;
 		this.isFold = false;
 		for (int i = 0; i < 13; ++i)
 			this.hand.add(deck[13 * (number - 1) + i]);
@@ -69,5 +71,11 @@ public abstract class Player {
 	 * this method is called in the game-loop
 	 */
 	public abstract void play();
+
+	public void setBluffGui(BluffGui bluffGui) {
+		this.bluffGui = bluffGui;
+		// TODO Auto-generated method stub
+
+	}
 
 }

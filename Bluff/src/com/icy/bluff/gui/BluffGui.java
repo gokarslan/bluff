@@ -15,8 +15,11 @@ import javax.swing.JTextPane;
 
 import com.icy.bluff.Bluff;
 import com.icy.bluff.Card;
+import com.icy.bluff.ComputerPlayer;
+import com.icy.bluff.HumanPlayer;
 import com.icy.bluff.Organizer;
 import com.icy.bluff.Player;
+
 import javax.swing.JSeparator;
 
 public class BluffGui extends JPanel {
@@ -63,6 +66,8 @@ public class BluffGui extends JPanel {
 	 */
 	public BluffGui(Bluff bluff) {
 		this.bluff = bluff;
+		for (int i = 0; i < Bluff.NUMBEROFPLAYERS; ++i)
+			bluff.players[i].setBluffGui(this);
 		this.drawHands();
 
 	}
@@ -78,6 +83,8 @@ public class BluffGui extends JPanel {
 		myFrame.setPreferredSize(new Dimension(1024, 768));
 		myFrame.pack();
 		myFrame.setVisible(true);
+		//TODO GAME LOOP
+		this.bluff.players[0].play();
 
 	}
 	//TODO Should be turned into paint, which is a method of JPanel
