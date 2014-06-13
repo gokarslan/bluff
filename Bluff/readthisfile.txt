@@ -1,0 +1,31 @@
+ERRORS:
+1)Kartlar ayni hizaya gelmiyor
+2)paint, paintcomponent gibi metodlara ihtiyac var
+
+BUTTONS:
+1)HitButton'u yaptim teorik olarak calisiyor, yani arraylistleri(holding, hand, table) dogru guncelliyor ama repaint duzgun olmadigindan goruntu olarak test edemedim
+Hit yaparken claim'i giriyor text'e onu parse ediyorum ama error check yapmadim, simdilik appropriate girisler yapalim sonra errorlari handle ederiz;
+(asdsd falan girme gibi seylerde hata mesaji cikarip lutfen duzgun girin olabilir, ya da text yerine list koyup mecburen sectirebiliriz, 
+secenekleri konusuruz, ilk onceligimiz su an grafigin duzgun cizilmesi bence:)
+ oyunu rahatca test edebilmek icin sonrasini hallederiz bir sekilde diye dusunuyorum:))
+2)OpenButton da ayni sekilde, ancak onda butonlarin aktif, pasifligini ayarladim gibi biraz, yine de check etmek lazim
+3)FoldButton da ayni
+
+
+NOTE:
+1)Butonlarin aktif ve pasif olmasi gereken durumlari yazmadim, mesela el acilinca yeni bir kart dusune kadar open pasif olmali gibi,
+oyun donmeye baslayinca gerekli yerlerde aktif ve pasifligini set ederiz diye dusunuyorum
+2)Grafik cizmeyi halletikten sonra istiyosan commit et ve oyun dongusunu yazayim ben sonra beraber bir deneriz oyunu oyun dongunsunu soyle dusunuyorum
+  oyuncu kart attiktan sonra:
+  repaint (table'daki kartlari ve oyununcunun kartlarini)
+  sirayla bilgisayarlarin play metodlarini cagir(arada sure birakmali)
+  eger herhangi bir bilgisayar kart acarsa, ilgili yerden oyunu baslat
+  oyuncuya sira geldiginde oyuncunun butonlara basmasina gore dongunun ilgili yerinden oyun dongusune don
+  ve her kart atilmasi, acilmasinda repaint'i cagir
+  
+3) Enumlari gui package'inda kullandigim icin farkli dosyada tanimladim(ayni dosyada public olarak tanimlayamiyoruz sanirim)
+4)jdoclarin hepsini guncellemedim, paint vs degisecegi icin en son bi bakariz dedim
+ 
+ Kolay gelsin:)
+ -kerim
+  

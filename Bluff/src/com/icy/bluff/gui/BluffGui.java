@@ -63,7 +63,28 @@ public class BluffGui extends JPanel {
 	 */
 	public BluffGui(Bluff bluff) {
 		this.bluff = bluff;
-		
+		this.drawHands();
+
+	}
+
+	/**
+	 * Displays the gui
+	 */
+	public void display() {
+		JFrame myFrame = new JFrame("Bluff");
+		myFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		myFrame.setContentPane(this);
+		myFrame.setResizable(true);
+		myFrame.setPreferredSize(new Dimension(1024, 768));
+		myFrame.pack();
+		myFrame.setVisible(true);
+
+	}
+	//TODO Should be turned into paint, which is a method of JPanel
+	/**
+	 * Draws the hands into gui, it should be called in the game loop
+	 */
+	public void drawHands() {
 		this.topPanel.setBackground(new Color(0, 122, 0));
 		secondPanel.setAutoscrolls(true);
 		this.secondPanel.setBackground(new Color(0, 122, 0));
@@ -73,7 +94,7 @@ public class BluffGui extends JPanel {
 		flowLayout.setVgap(20);
 		this.playerPanel.setBackground(new Color(0, 122, 0));
 		this.topPanel.setLayout(new FlowLayout());
-		this.claimText.setText(" ");
+		this.claimText.setText("");
 		this.claimText.setFont(new java.awt.Font("Helvetica Bold", 1, 20));
 		this.openButton.setText("  Open");
 		this.openButton.addActionListener(new OpenButton(this));
@@ -111,28 +132,6 @@ public class BluffGui extends JPanel {
 		
 		playerPanel.add(separator);
 		//this.add(new JPanel(),BorderLayout.SOUTH );
-		this.drawHands();
-
-	}
-
-	/**
-	 * Displays the gui
-	 */
-	public void display() {
-		JFrame myFrame = new JFrame("Bluff");
-		myFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		myFrame.setContentPane(this);
-		myFrame.setResizable(true);
-		myFrame.setPreferredSize(new Dimension(1024, 768));
-		myFrame.pack();
-		myFrame.setVisible(true);
-
-	}
-
-	/**
-	 * Draws the hands into gui, it should be called in the game loop
-	 */
-	public void drawHands() {
 		Player[] players = this.bluff.players;
 		for (int i = 0; i < players[0].hand.size(); ++i) {
 			this.playerPanel.add(new JLabel(players[0].hand.get(i).getImage()));
@@ -150,6 +149,7 @@ public class BluffGui extends JPanel {
 		for (int i = 0; i < players[3].hand.size(); ++i) {
 			this.fourthPanel.add(new JLabel(new ImageIcon("img/backr.jpg")));
 		}
+		
 		 
 	}
 	/**

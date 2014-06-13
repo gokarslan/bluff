@@ -3,27 +3,7 @@ package com.icy.bluff;
 import javax.swing.ImageIcon;
 import javax.swing.text.html.HTMLDocument.HTMLReader.IsindexAction;
 
-/**
- * Enum for the suits
- * 
- * @author Kerim Gokarslan <kerim.gokarslan@boun.edu.tr>
- * @version 0.1
- * 
- */
-enum Suit {
-	HEARTS, DIAMONDS, SPADE, CLUBS
-}
 
-/**
- * Enum for the values of cards
- * 
- * @author Kerim Gokarslan <kerim.gokarslan@boun.edu.tr>
- * @version 0.1
- * 
- */
-enum Value {
-	TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN, JACK, QUEEN, KING, ACE
-}
 
 /**
  * This class holds the information of a card

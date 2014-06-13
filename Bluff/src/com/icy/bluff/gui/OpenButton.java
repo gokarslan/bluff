@@ -61,6 +61,7 @@ public class OpenButton implements ActionListener {
 		bluff.lastClaim = null;
 		bluff.lastClaimOwner = 0;
 		bluff.numberOfLastCards = 0;
+		//TODO RECHECK THE ENABILING 
 		this.bluffGui.openButton.setEnabled(false);
 		this.bluffGui.foldButton.setEnabled(false);
 

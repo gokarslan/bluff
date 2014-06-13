@@ -63,18 +63,17 @@ public class Bluff {
 
 	}
 
-	// TODO IT MIGHT BE NOT NECESSARY
 	/**
 	 * Adds the given cards into table
 	 * 
-	 * @param claim
-	 *            The value of claim
 	 * @param cards
 	 *            The cards that thrown
 	 */
-	public void addToTable(Value claim, Card[] cards) {
-		this.lastClaim = claim;
-		this.numberOfLastCards = cards.length;
+	public void addToTable(ArrayList<Card> cards) {
+		// this.lastClaim = claim;
+		this.numberOfLastCards = cards.size();
+		for (int i = 0; i < this.numberOfLastCards; ++i)
+			this.table.add(cards.get(i));
 	}
 
 	/**
@@ -89,17 +88,16 @@ public class Bluff {
 	/**
 	 * Starts a new turn
 	 * 
+	 * @param claim
+	 * 
+	 *            The value of claim
+	 * 
 	 * @param cards
 	 *            The cards that thrown
-	 * @param claim
-	 *            The value of claim
 	 */
-	public void startANewTurn(Card[] cards, Value claim) {
-		this.isAllFold = false;
+	public void startANewTurn(Value claim, ArrayList<Card> cards) {
 		this.lastClaim = claim;
-		this.numberOfLastCards = cards.length;
-		for (int i = 0; i < cards.length; ++i)
-			this.table.add(cards[i]);
+		this.addToTable(cards);
 	}
 
 	/**

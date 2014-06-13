@@ -34,7 +34,7 @@ public class HumanPlayer extends Player {
 	 */
 	@Override
 	public void play() {
-		System.out.println(this.hand.toString());
+		/*System.out.println(this.hand.toString());
 		@SuppressWarnings("resource")
 		Scanner input = new Scanner(System.in);
 		if (this.bluff.isAllFold()) {
@@ -122,7 +122,7 @@ public class HumanPlayer extends Player {
 			this.bluff.playCurrentTurn(cards);
 
 		}
-		// input.close();
+		// input.close();*/
 
 	}
 }
