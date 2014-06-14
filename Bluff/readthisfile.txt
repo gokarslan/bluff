@@ -1,9 +1,10 @@
 Merhaba, ilk committe de olan hata vs silmeden gonderiyorum, tekrar en bastan okursan guzel olabilir :)
 
 ERRORS:
-1)Kartlar ayni hizaya gelmiyor(Kart secme olayinda baya bir error handling yapmak lazim, ayrica claim yeri text yerine 
-list yapsak daha hos olur error olma ihtimali ortadan kalkar diye dusunuyorum)
-2)paint, paintcomponent gibi metodlara ihtiyac var(bunlar da olmadan su an oluyo gibi)
+[GEÇÝCÝ OLARAK ÇÖZÜLDÜ]1)Kartlar ayni hizaya gelmiyor
+(Kart secme olayinda baya bir error handling yapmak lazim) 
+[RADIO BUTTONS ILE COZULDU]ayrica claim yeri text yerine list yapsak daha hos olur error olma ihtimali ortadan kalkar diye dusunuyorum
+2)[ANLIK OLARAK SIKINTI YOK KALICI ÇÖZÜM ARAÞTIRIYORUM ]paint, paintcomponent gibi metodlara ihtiyac var(bunlar da olmadan su an oluyo gibi)
 
 BUTTONS:
 Buttonlara basilinca gerekli islemi yaptiktan sonra 2 numarali(index olarak 1) playerin playi cagiriliyo onlarda sirayla bir sonrakini cagiriyolar oynadiktan sonra

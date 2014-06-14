@@ -5,6 +5,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
+import javax.swing.ButtonModel;
+import javax.swing.JEditorPane;
+import javax.swing.JRadioButton;
+
 import com.icy.bluff.Bluff;
 import com.icy.bluff.Player;
 import com.icy.bluff.Value;
@@ -42,13 +46,47 @@ public class HitButton implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		Bluff bluff = this.bluffGui.bluff;
 		Player player = bluff.players[0];
-		System.err.println(Integer.parseInt(bluffGui.claimText.getText()));
+		System.out.println(bluffGui.buttonGroup.getSelection());
+		
+		//System.err.println(Integer.parseInt(bluffGui.claimText.getText()));
 		System.err.println(player.holding);
+		
 		if (player.holding.size() < 1) {
 
 		} else if (bluff.table.size() == 0) {// it means that is a new turn
 			Value claim = null;
-			switch (Integer.parseInt(bluffGui.claimText.getText())) {
+			ButtonModel a = bluffGui.buttonGroup.getSelection();
+			
+			if(bluffGui.rdb2.isSelected()){
+				claim = Value.TWO;
+			} else if(bluffGui.rdb3.isSelected()){
+				claim = Value.THREE;
+			}else if(bluffGui.rdb4.isSelected()){
+				claim = Value.FOUR;
+			}else if(bluffGui.rdb5.isSelected()){
+				claim = Value.FIVE;
+			}else if(bluffGui.rdb6.isSelected()){
+				claim = Value.SIX;
+			}else if(bluffGui.rdb7.isSelected()){
+				claim = Value.SEVEN;
+			}else if(bluffGui.rdb8.isSelected()){
+				claim = Value.EIGHT;
+			}else if(bluffGui.rdb9.isSelected()){
+				claim = Value.NINE;
+			}else if(bluffGui.rdb10.isSelected()){
+				claim = Value.TEN;
+			}else if(bluffGui.rdbj.isSelected()){
+				claim = Value.JACK;
+			}else if(bluffGui.rdbq.isSelected()){
+				claim = Value.QUEEN;
+			}else if(bluffGui.rdbq.isSelected()){
+				claim = Value.KING;
+			}else if(bluffGui.rdba.isSelected()){
+				claim = Value.ACE;
+			}
+			
+			//I(erhan) think IT's useless from now on, but left it there. 
+			/*switch (Integer.parseInt(bluffGui.claimText.getText())) {
 			case 2:
 				claim = Value.TWO;
 				break;
@@ -92,7 +130,7 @@ public class HitButton implements ActionListener {
 				System.err.println("VOOOVVV");// TODO ERROR
 				System.exit(-2);
 
-			}
+			}*/
 			if (claim == null) {
 
 			} else {
