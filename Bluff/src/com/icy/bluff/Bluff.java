@@ -8,7 +8,7 @@ import java.util.Random;
  * This class handles the game
  * 
  * @author Kerim Gokarslan <kerim.gokarslan@boun.edu.tr>
- * @version 0.1
+ * @version 0.2
  * 
  * 
  * 
@@ -51,15 +51,6 @@ public class Bluff {
 		this.players[0] = new HumanPlayer(deck, 1, null);
 		for (int i = 1; i < Bluff.NUMBEROFPLAYERS; ++i)
 			this.players[i] = new ComputerPlayer(deck, i + 1, null);
-		/*
-		 * The game loop should be in gui or main class, it is used for checking
-		 * while(true){ this.players[0].play(); for (int i = 1; i <
-		 * Bluff.NUMBEROFPLAYERS; ++i){
-		 * 
-		 * try { Thread.sleep(1000); } catch (InterruptedException e) { // TODO
-		 * GAME LOOP WITHOUT GUI Auto-generated catch block e.printStackTrace();
-		 * } this.players[i].play(); } }
-		 */
 
 	}
 

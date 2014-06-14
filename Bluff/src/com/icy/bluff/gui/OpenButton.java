@@ -29,21 +29,28 @@ public class OpenButton implements ActionListener {
 	 *            Gui instance
 	 */
 	public OpenButton(BluffGui bluffGui) {
-		//super();
+		// super();
 		this.bluffGui = bluffGui;
 	}
-	//TODO OPENING A CARD
+
+	// TODO OPENING A CARD
 	/**
 	 * Handles opening
 	 */
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		Bluff bluff = this.bluffGui.bluff;
-		if (bluff.table.size() < 1)
-			;// TODO ERROR
+		if (bluff.table.size() < 1){
+			new Error(this.bluffGui.frame,"ERROR TITLE", "There is no card to open!");
+			return ;
+		}
+		if(bluff.lastClaimOwner==0){
+			new Error(this.bluffGui.frame,"ERROR TITLE", "One does not simply open his own card!!");
+			return ;
+		}
 		boolean flag = true;
 		for (int i = 0; i < bluff.numberOfLastCards; ++i) {
-			if (!bluff.table.get(bluff.table.size() - i)
+			if (!bluff.table.get(bluff.table.size() -1- i)
 					.equals(bluff.lastClaim)) {
 				flag = false;
 
@@ -59,11 +66,11 @@ public class OpenButton implements ActionListener {
 		}
 		bluff.table = new ArrayList<Card>();
 		bluff.lastClaim = null;
-		int temp=bluff.lastClaimOwner ;
+		int temp = bluff.lastClaimOwner;
 		bluff.lastClaimOwner = 0;
 		bluff.numberOfLastCards = 0;
 		bluffGui.topPanel.getComponent(0).setVisible(false);
-		bluffGui.topPanel.getComponent(0).setVisible(true);		
+		bluffGui.topPanel.getComponent(0).setVisible(true);
 		bluffGui.playerPanel.repaint();
 		bluffGui.repaint();
 		try {
@@ -72,14 +79,15 @@ public class OpenButton implements ActionListener {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-		if(flag)
-			this.bluffGui.bluff.players[0].play();
-		else
-			this.bluffGui.bluff.players[temp-1].play();
-		
-		//TODO RECHECK THE ENABILING 
+
+		// TODO RECHECK THE ENABILING
 		this.bluffGui.openButton.setEnabled(false);
 		this.bluffGui.foldButton.setEnabled(false);
+		System.err.println("TABLE\n:" + this.bluffGui.bluff.table.toString());
+		if (flag)
+			this.bluffGui.bluff.players[0].play();
+		else
+			this.bluffGui.playComputers(temp - 1);
 
 	}
 

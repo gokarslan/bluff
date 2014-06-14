@@ -48,7 +48,8 @@ public class FoldButton implements ActionListener {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}*/
-		this.bluffGui.bluff.players[1].play();
+		System.err.println("TABLE\n:" + this.bluffGui.bluff.table.toString());
+		this.bluffGui.playComputers(1);
 
 	}
 

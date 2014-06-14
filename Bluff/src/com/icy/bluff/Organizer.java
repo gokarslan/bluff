@@ -5,17 +5,15 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 import javax.swing.JLabel;
-import javax.swing.JPanel;
 
 import com.icy.bluff.gui.BluffGui;
 
 /**
  * Handles the mouse click <br>
  * 
- * UNDERSTANDING THE CLICK AND CHOOSING THE CARDS SHOULD BE IMPLEMENTED HERE
  * 
  * @author Kerim Gokarslan <kerim.gokarslan@boun.edu.tr>
- * @version 0.1
+ * @version 0.2
  * 
  * 
  * 

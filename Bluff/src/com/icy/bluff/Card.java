@@ -10,7 +10,7 @@ import javax.swing.JLabel;
  * This class holds the information of a card
  * 
  * @author Kerim Gokarslan <kerim.gokarslan@boun.edu.tr>
- * @version 0.1
+ * @version 0.2
  * 
  */
 public class Card implements Comparable<Card> {
@@ -323,10 +323,17 @@ public class Card implements Comparable<Card> {
 		return new ImageIcon(fileName);
 
 	}
-	
+	/**
+	 * sets isSelected as it's opposite
+	 */
 	public void setSelected(){
 		this.isSelected = !isSelected;
 	}
+	/**
+	 * Gives the isSelected
+	 * @return
+	 * 		<code>TRUE</code> if it is selected
+	 */
 	public boolean isSelected() {
 		return isSelected;
 	}

@@ -1,35 +1,24 @@
-Merhaba, ilk committe de olan hata vs silmeden gonderiyorum, tekrar en bastan okursan guzel olabilir :)
+Tekrardan merhaba,
 
-ERRORS:
-[GEÇÝCÝ OLARAK ÇÖZÜLDÜ]1)Kartlar ayni hizaya gelmiyor
-(Kart secme olayinda baya bir error handling yapmak lazim) 
-[RADIO BUTTONS ILE COZULDU]ayrica claim yeri text yerine list yapsak daha hos olur error olma ihtimali ortadan kalkar diye dusunuyorum
-2)[ANLIK OLARAK SIKINTI YOK KALICI ÇÖZÜM ARAÞTIRIYORUM ]paint, paintcomponent gibi metodlara ihtiyac var(bunlar da olmadan su an oluyo gibi)
+Iki buyuk problem(daha dogrusu eksigimiz var)
+1) Oyuncularin(human player dahil) kart sayilari arttiginda ya da azaldiginda 
+ekranda guncellenmesi lazim, ornegin open diyip actiginda ve kart kullanicida patladiginda
+hand listi degisiyor ama ekrana yazilmiyo bir sekilde halletmek lazim, uygun
+bir yerde drawHands'i cagirarak olur ama oncelikle eski ekrani silmek lazim(clear tarzi bir metodla)
+repaint ile falan halledilir herhalde
+(yani bu repaint yerine yazdigin seyi her yerde farkli yapmaktansa bir sekilde repaint olayini
+halledersek cok temiz kurtulmus oluruz zaten drawHands her seferinde adamin eline gore ciziyo
+bir de table icin de yapariz onu olur, onemli kisim burda oncekileri temizlemek yoksa ustune
+ciziyo salak bir goruntu olusuyo)
+2) table da ayni sekilde guncellendiginde orda da kart sayisi artmali-azalmali
 
-BUTTONS:
-Buttonlara basilinca gerekli islemi yaptiktan sonra 2 numarali(index olarak 1) playerin playi cagiriliyo onlarda sirayla bir sonrakini cagiriyolar oynadiktan sonra
-en sonda tekrar human playerin playi cagriliyo, o da butonlari tekrar enable ediyo ve ilgili butona basilmasiyla dongu tekrar baslamis oluyo
+EXTRA:
+1) yapabilirsek kart atma animasyonu tarzi bir sey koyabiliriz
+2) Error diye class yaptim hatali girislerde vs ordan mesaj atariz birkac yere denemelik koydum
+kendi kartini acmaya calisinca kullanici falan hata veriyo denersin bi :)
 
-Fold butonuna bastiginda kullanici bir kez, o el boyunca kullanica 2-3 sn durup direkt gecebiliriz aslinda
-ama bunu eklemedim su an
+Bu ikisini halledersek en son jdoc falan yazip debugging surecine gireriz diye dusunuyorum
+Bu arada gereksiz olan yerleri sildim biraz kodda bosa kalabalik yapmasin diye
 
-
-NOTE:
-1)Butonlarin aktif ve pasif olmasi gereken durumlari yazmadim, mesela el acilinca yeni bir kart dusune kadar open pasif olmali gibi,
-oyun donmeye baslayinca gerekli yerlerde aktif ve pasifligini set ederiz diye dusunuyorum
-(Bunun buyuk bir kismini yazdim debugging yaparken hatali yerler ortaya cikar zaten)
-2)Oyun dongusu yukarda anlattigim gibi, yalniz tabledaki kart degisimlerine gore ortaya da bir jpanel tarzi
-kartlarin olacagi bir sey lazim ve tabi mumkunse kart atma animasyonu falan gibi
-o animasyonu timerla her seferinde koordinat degistirerek cizip halledebiliriz ama simdilik en
-azindan tableda kartlar gorunse hois olabilir
-  
-4)jdoclarin hepsini hala guncellemedim, bu table vs olayini cozunce hallederiz diye dusunuyorum
-5)Onemli: Bu oyun dongusu icinde her playin basinda herkes fold demis mi diye bakmak lazim, ilgili degiskeni
-bluff classinda tanimlamistim ama bakan metod yazmadim sanirim, ama baya basit bir sey senden sonraki
-bakisimda ben halledebilirim yani, unutmamak icin not birakiyorum buraya
-
-
-Sorry for uzun uzadiya yazmam;
-Tekrarda kolay gelsin:)
- -kerim
-  
+kolay gelsin,
+-kerim  

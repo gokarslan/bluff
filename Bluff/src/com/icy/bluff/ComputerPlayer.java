@@ -1,5 +1,8 @@
 package com.icy.bluff;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+
 import com.icy.bluff.gui.BluffGui;
 
 /**
@@ -34,23 +37,41 @@ public class ComputerPlayer extends Player {
 		this.bluffGui.foldButton.setEnabled(false);
 		this.bluffGui.hitButton.setEnabled(false);
 		this.bluffGui.playerPanel.setEnabled(false);
-		//TODO AI PLAYS IN HERE
-		/*try {//waits sleep atmak oyunu kasiyo sanirim onun yerine timerli falan kart atma animasyonu koyarsak hallolur
-			Thread.sleep(1000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}*/
+		Iterator<Card> iterator = this.hand.iterator();
+		while (iterator.hasNext()) {
+			Card current = iterator.next();
+			if (current.equals(this.bluffGui.bluff.lastClaim)) {
+				iterator.remove();
+				ArrayList<Card> list = new ArrayList<Card>();
+				list.add(current);
+				this.bluffGui.bluff.addToTable(list);
+				this.bluffGui.bluff.lastClaimOwner = this.number;
+				this.bluffGui.bluff.numberOfLastCards = 1;// simdilik sadece
+															// elinde varsa
+															// dogru 1 kart
+															// atiyo deneme
+															// amacli
+				break;
+			}
+		}
+		// TODO AI PLAYS IN HERE
+		/*
+		 * try {//waits sleep atmak oyunu kasiyo sanirim onun yerine timerli
+		 * falan kart atma animasyonu koyarsak hallolur Thread.sleep(1000); }
+		 * catch (InterruptedException e) { // TODO Auto-generated catch block
+		 * e.printStackTrace(); }
+		 */
 		bluffGui.topPanel.getComponent(0).setVisible(false);
-		bluffGui.topPanel.getComponent(0).setVisible(true);		
+		bluffGui.topPanel.getComponent(0).setVisible(true);
 		bluffGui.playerPanel.repaint();
 		bluffGui.repaint();
+		//
 		System.out.println("I AM A COMPUTER BITCH!");
-		if(this.number!=4){
-			this.bluffGui.bluff.players[this.number].play();//the next ai-player
-		}
-		else
-			this.bluffGui.bluff.players[0].play();//the human player
+		/*
+		 * if(this.number!=4){
+		 * this.bluffGui.bluff.players[this.number].play();//the next ai-player
+		 * } else this.bluffGui.bluff.players[0].play();//the human player
+		 */
 
 	}
 
