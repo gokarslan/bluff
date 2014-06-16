@@ -17,6 +17,12 @@ import com.icy.bluff.Bluff;
 import com.icy.bluff.Card;
 import com.icy.bluff.Organizer;
 import com.icy.bluff.Player;
+import java.awt.GridLayout;
+import javax.swing.SwingConstants;
+import java.awt.TextField;
+import java.awt.Label;
+import javax.swing.JTextField;
+import java.awt.CardLayout;
 
 public class BluffGui extends JPanel {
 	/**
@@ -58,6 +64,16 @@ public class BluffGui extends JPanel {
 	public final JRadioButton rdbq = new JRadioButton("Q");
 	public final JRadioButton rdbk = new JRadioButton("K");
 	public final JRadioButton rdba = new JRadioButton("A");
+	public final JPanel infoPanel = new JPanel();
+	public final JLabel ccount = new JLabel("Number of cards on table:");
+	public final JTextField lastCardCount = new JTextField();
+	public final JLabel lcowner = new JLabel("Last Claim owner:");
+	public final JLabel lccount = new JLabel("Number of Last Card count:");
+	public final JTextField lastClaimOwner = new JTextField();
+	public final JLabel lclaim = new JLabel("Last Claim:");
+	public final JTextField cardCount = new JTextField();
+	public final JTextField lastClaimVal = new JTextField();
+	public final JPanel cardPanel = new JPanel();
 
 	/**
 	 * Constructor
@@ -66,12 +82,22 @@ public class BluffGui extends JPanel {
 	 *            The game instance
 	 */
 	public BluffGui(Bluff bluff) {
+		lastClaimVal.setEditable(false);
+		lastClaimVal.setColumns(10);
+		cardCount.setEditable(false);
+		cardCount.setColumns(10);
+		lastClaimOwner.setEditable(false);
+		lastClaimOwner.setColumns(10);
+		lccount.setLabelFor(lastCardCount);
+		lastCardCount.setEditable(false);
+		lastCardCount.setColumns(10);
+		
 		setBorder(null);
 		this.bluff = bluff;
 		for (int i = 0; i < Bluff.NUMBEROFPLAYERS; ++i)
 			bluff.players[i].setBluffGui(this);
 		this.drawHands();
-
+		this.updateTableInfo();
 		// ///////////
 		this.buttonGroup.add(rdb2);
 		this.buttonGroup.add(rdb3);
@@ -158,6 +184,29 @@ public class BluffGui extends JPanel {
 		add(table);
 		table.setBackground(Color.ORANGE);
 		table.setLayout(new BorderLayout(0, 0));
+		
+		table.add(infoPanel, BorderLayout.WEST);
+		infoPanel.setLayout(new GridLayout(4, 2, 0, 0));
+		ccount.setVerticalTextPosition(SwingConstants.TOP);
+		
+		infoPanel.add(ccount);
+		
+		infoPanel.add(cardCount);
+		
+		infoPanel.add(lccount);
+		
+		infoPanel.add(lastCardCount);
+		
+		infoPanel.add(lcowner);
+		
+		infoPanel.add(lastClaimOwner);
+		
+		infoPanel.add(lclaim);
+		
+		infoPanel.add(lastClaimVal);
+		
+		table.add(cardPanel, BorderLayout.CENTER);
+		cardPanel.setLayout(new CardLayout(0, 0));
 		// this.add(new JPanel(),BorderLayout.SOUTH );
 
 		this.add(topPanel);
@@ -222,20 +271,13 @@ public class BluffGui extends JPanel {
 			System.err.println("TABLE\n:" + this.bluff.table.toString());
 		}
 		this.bluff.players[0].play();
+		this.updateTableInfo();
 
 	}
+	/**
+	 * Repaints the changes on the board.Should be called after any change on the board.
+	 */
 	public void refresh (){
-		/*this.topPanel.getComponent(0).setVisible(false);
-		this.topPanel.getComponent(0).setVisible(true);
-		this.secondPanel.getComponent(0).setVisible(false);
-		this.secondPanel.getComponent(0).setVisible(true);
-		this.thirdPanel.getComponent(0).setVisible(false);
-		this.thirdPanel.getComponent(0).setVisible(true);
-		this.fourthPanel.getComponent(0).setVisible(false);
-		this.fourthPanel.getComponent(0).setVisible(true);
-		this.playerPanel.getComponent(0).setVisible(false);
-		this.playerPanel.getComponent(0).setVisible(true);
-		System.out.println("size : " + this.getComponents().length);*/
 		
 		for(int i = 0; i<this.getComponentCount();i++){
 			if (this.getComponent(i)!=null) {
@@ -245,11 +287,16 @@ public class BluffGui extends JPanel {
 			this.getComponent(i).repaint();
 		}
 		
-		/*this.topPanel.repaint();
-		this.secondPanel.repaint();
-		this.thirdPanel.repaint();
-		this.fourthPanel.repaint();
-		this.playerPanel.repaint();*/
 		this.repaint();
+	}
+	/**
+	 * Updates the card info on the table.
+	 */
+	public void updateTableInfo(){
+		this.cardCount.setText(""+bluff.table.size());
+		this.lastCardCount.setText(""+bluff.numberOfLastCards);
+		this.lastClaimOwner.setText("Player - "+bluff.lastClaimOwner);
+		this.lastClaimVal.setText(""+bluff.lastClaim);
+		this.refresh();
 	}
 }

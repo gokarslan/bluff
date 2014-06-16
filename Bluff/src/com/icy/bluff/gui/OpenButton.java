@@ -69,10 +69,8 @@ public class OpenButton implements ActionListener {
 		int temp = bluff.lastClaimOwner;
 		bluff.lastClaimOwner = 0;
 		bluff.numberOfLastCards = 0;
-		bluffGui.topPanel.getComponent(0).setVisible(false);
-		bluffGui.topPanel.getComponent(0).setVisible(true);
-		bluffGui.playerPanel.repaint();
-		bluffGui.repaint();
+		
+		bluffGui.refresh();
 		try {
 			Thread.sleep(2000);
 		} catch (InterruptedException e1) {
@@ -89,11 +87,7 @@ public class OpenButton implements ActionListener {
 		else
 			this.bluffGui.playComputers(temp - 1);
 		
-		
-		bluffGui.topPanel.getComponent(0).setVisible(false);
-		bluffGui.topPanel.getComponent(0).setVisible(true);
-		bluffGui.playerPanel.repaint();
-		bluffGui.repaint();
+		bluffGui.refresh();
 	}
 	
 }
