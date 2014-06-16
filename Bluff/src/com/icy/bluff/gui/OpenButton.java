@@ -88,7 +88,12 @@ public class OpenButton implements ActionListener {
 			this.bluffGui.bluff.players[0].play();
 		else
 			this.bluffGui.playComputers(temp - 1);
-
+		
+		
+		bluffGui.topPanel.getComponent(0).setVisible(false);
+		bluffGui.topPanel.getComponent(0).setVisible(true);
+		bluffGui.playerPanel.repaint();
+		bluffGui.repaint();
 	}
-
+	
 }

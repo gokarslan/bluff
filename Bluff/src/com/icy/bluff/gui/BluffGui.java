@@ -224,4 +224,32 @@ public class BluffGui extends JPanel {
 		this.bluff.players[0].play();
 
 	}
+	public void refresh (){
+		/*this.topPanel.getComponent(0).setVisible(false);
+		this.topPanel.getComponent(0).setVisible(true);
+		this.secondPanel.getComponent(0).setVisible(false);
+		this.secondPanel.getComponent(0).setVisible(true);
+		this.thirdPanel.getComponent(0).setVisible(false);
+		this.thirdPanel.getComponent(0).setVisible(true);
+		this.fourthPanel.getComponent(0).setVisible(false);
+		this.fourthPanel.getComponent(0).setVisible(true);
+		this.playerPanel.getComponent(0).setVisible(false);
+		this.playerPanel.getComponent(0).setVisible(true);
+		System.out.println("size : " + this.getComponents().length);*/
+		
+		for(int i = 0; i<this.getComponentCount();i++){
+			if (this.getComponent(i)!=null) {
+				this.getComponent(i).setVisible(false);
+				this.getComponent(i).setVisible(true);
+			}
+			this.getComponent(i).repaint();
+		}
+		
+		/*this.topPanel.repaint();
+		this.secondPanel.repaint();
+		this.thirdPanel.repaint();
+		this.fourthPanel.repaint();
+		this.playerPanel.repaint();*/
+		this.repaint();
+	}
 }

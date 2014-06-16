@@ -51,6 +51,23 @@ public class ComputerPlayer extends Player {
 															// dogru 1 kart
 															// atiyo deneme
 															// amacli
+				
+				
+				switch (number) {
+				case 2:
+					bluffGui.secondPanel.remove(0);
+					break;
+				case 3:
+					bluffGui.thirdPanel.remove(0);
+					break;
+				case 4:
+					bluffGui.fourthPanel.remove(0);
+					break;
+				default:
+					break;
+				}
+				
+				
 				break;
 			}
 		}
@@ -61,10 +78,13 @@ public class ComputerPlayer extends Player {
 		 * catch (InterruptedException e) { // TODO Auto-generated catch block
 		 * e.printStackTrace(); }
 		 */
-		bluffGui.topPanel.getComponent(0).setVisible(false);
-		bluffGui.topPanel.getComponent(0).setVisible(true);
-		bluffGui.playerPanel.repaint();
-		bluffGui.repaint();
+//		bluffGui.topPanel.getComponent(0).setVisible(false);
+//		bluffGui.topPanel.getComponent(0).setVisible(true);
+//		bluffGui.playerPanel.repaint();
+//		bluffGui.repaint();
+		
+		bluffGui.refresh();
+		
 		//
 		System.out.println("I AM A COMPUTER BITCH!");
 		/*

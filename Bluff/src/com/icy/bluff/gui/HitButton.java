@@ -108,10 +108,8 @@ public class HitButton implements ActionListener {
 		}
 
 		// repainti tam beceremedim ama bunu yapýnca repaint gibi oluyor.
-		bluffGui.topPanel.getComponent(0).setVisible(false);
-		bluffGui.topPanel.getComponent(0).setVisible(true);
-		bluffGui.playerPanel.repaint();
-		bluffGui.repaint();
+
+		bluffGui.refresh();
 		System.err.println("TABLE\n:" + this.bluffGui.bluff.table.toString());
 		this.bluffGui.playComputers(1);
 

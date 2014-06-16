@@ -1,6 +1,14 @@
 Tekrardan merhaba,
 
 Iki buyuk problem(daha dogrusu eksigimiz var)
+-----------
+Sanýrým problem 1 i çözdüm. Þuan Jpanel üzerindeki bütün oyuncu panellerini traverse ederek hepsine repaint yapýyorum.
+Kaç component olduðunu kendi belirliyor getcomponentcount methoduyla dolayýsýyla yeni eklenecekler için 
+(mesela table geldiðinde) endiþelenmemize gerek yok.
+
+metod ======> bluffGui.repaint();
+
+-------------
 1) Oyuncularin(human player dahil) kart sayilari arttiginda ya da azaldiginda 
 ekranda guncellenmesi lazim, ornegin open diyip actiginda ve kart kullanicida patladiginda
 hand listi degisiyor ama ekrana yazilmiyo bir sekilde halletmek lazim, uygun
@@ -10,7 +18,16 @@ repaint ile falan halledilir herhalde
 halledersek cok temiz kurtulmus oluruz zaten drawHands her seferinde adamin eline gore ciziyo
 bir de table icin de yapariz onu olur, onemli kisim burda oncekileri temizlemek yoksa ustune
 ciziyo salak bir goruntu olusuyo)
+
+-----
+Bu artýk çok kolay bugün geç oldu gündüz hallederim diye düþünüyorum.
+Buna da konuþtuðumuz þekilde kart sayýsý ve son atýlan kart sayýsýný 
+bilgilendirecek þekilde sadece tek kart görünerek yapacaðým.
+----
 2) table da ayni sekilde guncellendiginde orda da kart sayisi artmali-azalmali
+
+
+3)lastClaimOwner deðiþkeninin güncellendiði yerleri kontrol et.
 
 EXTRA:
 1) yapabilirsek kart atma animasyonu tarzi bir sey koyabiliriz
