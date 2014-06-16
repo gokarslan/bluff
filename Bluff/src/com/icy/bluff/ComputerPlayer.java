@@ -78,10 +78,6 @@ public class ComputerPlayer extends Player {
 		 * catch (InterruptedException e) { // TODO Auto-generated catch block
 		 * e.printStackTrace(); }
 		 */
-//		bluffGui.topPanel.getComponent(0).setVisible(false);
-//		bluffGui.topPanel.getComponent(0).setVisible(true);
-//		bluffGui.playerPanel.repaint();
-//		bluffGui.repaint();
 		
 		bluffGui.refresh();
 		

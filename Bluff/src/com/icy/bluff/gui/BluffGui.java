@@ -50,7 +50,7 @@ public class BluffGui extends JPanel {
 	public JButton hitButton = new JButton();
 	public JButton foldButton = new JButton();
 	public ButtonGroup buttonGroup = new ButtonGroup();
-	public final JPanel table = new JPanel();
+	public final JPanel tablePanel = new JPanel();
 	public final JRadioButton rdb2 = new JRadioButton("2");
 	public final JRadioButton rdb3 = new JRadioButton("3");
 	public final JRadioButton rdb4 = new JRadioButton("4");
@@ -180,12 +180,12 @@ public class BluffGui extends JPanel {
 		setLayout(null);
 		secondPanel.setLayout(new FlowLayout(FlowLayout.LEFT, 10, -20));
 		playerPanel.setLayout(new FlowLayout(FlowLayout.CENTER, -30, 11));
-		table.setBounds(185, 265, 863, 297);
-		add(table);
-		table.setBackground(Color.ORANGE);
-		table.setLayout(new BorderLayout(0, 0));
+		tablePanel.setBounds(185, 265, 863, 297);
+		add(tablePanel);
+		tablePanel.setBackground(Color.ORANGE);
+		tablePanel.setLayout(new BorderLayout(0, 0));
 		
-		table.add(infoPanel, BorderLayout.WEST);
+		tablePanel.add(infoPanel, BorderLayout.WEST);
 		infoPanel.setLayout(new GridLayout(4, 2, 0, 0));
 		ccount.setVerticalTextPosition(SwingConstants.TOP);
 		
@@ -205,7 +205,7 @@ public class BluffGui extends JPanel {
 		
 		infoPanel.add(lastClaimVal);
 		
-		table.add(cardPanel, BorderLayout.CENTER);
+		tablePanel.add(cardPanel, BorderLayout.CENTER);
 		cardPanel.setLayout(new CardLayout(0, 0));
 		// this.add(new JPanel(),BorderLayout.SOUTH );
 
@@ -297,6 +297,12 @@ public class BluffGui extends JPanel {
 		this.lastCardCount.setText(""+bluff.numberOfLastCards);
 		this.lastClaimOwner.setText("Player - "+bluff.lastClaimOwner);
 		this.lastClaimVal.setText(""+bluff.lastClaim);
+		if(bluff.table.size()==0){
+			( (JPanel)(this.tablePanel.getComponent(1)) ).removeAll();
+		} else  {
+	
+			( (JPanel)(this.tablePanel.getComponent(1)) ).add(new JLabel(new ImageIcon("img/back.jpg")));
+		}
 		this.refresh();
 	}
 }
