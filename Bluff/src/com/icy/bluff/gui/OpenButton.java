@@ -3,6 +3,7 @@ package com.icy.bluff.gui;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Collections;
 
 import com.icy.bluff.Bluff;
 import com.icy.bluff.Card;
@@ -56,8 +57,36 @@ public class OpenButton implements ActionListener {
 
 			}
 		}
+		for(int i = 0; i<bluff.numberOfLastCards; i++){
+			System.out.println(bluff.table.get(bluff.table.size()-1-i).jcard);
+			bluffGui.openCardsPanel.add(bluff.table.get(bluff.table.size()-1-i).jcard);
+		}
+		
+		bluffGui.openCardsPanel.getComponent(0).setVisible(false);
+		bluffGui.openCardsPanel.getComponent(0).setVisible(true);
+		bluffGui.openCardsPanel.revalidate();
+		bluffGui.openCardsPanel.repaint();
+		bluffGui.refresh();
+		
+		
+		/////////////////
+
+		//BURAYA PROGRAMI BEKLETECEK BÝRÞEYLER YAZMAMIZ GEREKÝYOR
+		///Thread.sleep iþe yaramadý.
+		
+		///////////////////
+		
+		
+		//bluffGui.openCardsPanel.removeAll(); //clear open cards panel
+		
 		if (flag) {
 			bluff.players[0].addToHand(bluff.table);
+			Collections.sort(bluff.players[0].hand);
+			bluffGui.playerPanel.removeAll();
+			for (int i = 0; i < bluff.players[0].hand.size(); i++) {
+				//System.out.println("JEYKART : "+bluff.table.get(i).jcard);
+				bluffGui.playerPanel.add(bluff.players[0].hand.get(i).jcard);
+			}
 			this.bluffGui.hitButton.setEnabled(false);
 
 		} else {
@@ -69,10 +98,11 @@ public class OpenButton implements ActionListener {
 		int temp = bluff.lastClaimOwner;
 		bluff.lastClaimOwner = 0;
 		bluff.numberOfLastCards = 0;
-		
-		bluffGui.refresh();
+
+
+		bluffGui.updateTableInfo();
 		try {
-			Thread.sleep(2000);
+			Thread.sleep(1000);
 		} catch (InterruptedException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
@@ -86,8 +116,9 @@ public class OpenButton implements ActionListener {
 			this.bluffGui.bluff.players[0].play();
 		else
 			this.bluffGui.playComputers(temp - 1);
-		
-		bluffGui.refresh();
+
+
+		bluffGui.updateTableInfo();
 	}
-	
+
 }

@@ -47,17 +47,16 @@ public class HitButton implements ActionListener {
 		Bluff bluff = this.bluffGui.bluff;
 		Player player = bluff.players[0];
 		System.out.println(bluffGui.buttonGroup.getSelection());
-
-		// System.err.println(Integer.parseInt(bluffGui.claimText.getText()));
-		System.err.println(player.holding);
-
+		for(int i = 0 ; i<player.holding.size();i++){
+			player.holding.get(i).setSelected(false);
+		}
+		
 		if (player.holding.size() < 1) {
 			new Error(this.bluffGui.frame,"ERROR TITLE", "There is no card to hit!");
 			return ;
 
 		} else if (bluff.table.size() == 0) {// it means that is a new turn
 			Value claim = null;
-			ButtonModel a = bluffGui.buttonGroup.getSelection();
 
 			if (bluffGui.rdb2.isSelected()) {
 				claim = Value.TWO;
@@ -99,6 +98,7 @@ public class HitButton implements ActionListener {
 			}
 
 		} else {
+			
 			bluff.addToTable(player.holding);
 			player.hand.removeAll(player.holding);
 			for (int i = 0; i < player.holding.size(); i++) {
@@ -108,8 +108,8 @@ public class HitButton implements ActionListener {
 		}
 
 		// repainti tam beceremedim ama bunu yapýnca repaint gibi oluyor.
-
 		bluffGui.refresh();
+		bluffGui.updateTableInfo();
 		System.err.println("TABLE\n:" + this.bluffGui.bluff.table.toString());
 		this.bluffGui.playComputers(1);
 

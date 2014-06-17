@@ -43,6 +43,8 @@ public class Organizer extends MouseAdapter {
 	 * CHOOSING EFFECTS AS MOVING THE CARD ETC MIGHT BE GIVEN
 	 */
 	public void mousePressed(MouseEvent e) {
+		
+
 		// TODO CHOOSING CARDS
 		Component k = bluffGui.playerPanel.getComponentAt(e.getX(),e.getY());
 		
@@ -51,7 +53,6 @@ public class Organizer extends MouseAdapter {
 			Card sel = detectCard(ho);
 			bluffGui.drawSelection(sel,(JLabel)k);
 		}
-		
 	}
 	/**
 	 * Determines the card based on its filename.

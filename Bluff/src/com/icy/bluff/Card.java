@@ -97,7 +97,7 @@ public class Card implements Comparable<Card> {
 			this.value = Value.ACE;
 			break;
 		}
-
+		this.jcard = new JLabel(getImage());
 	}
 	
 	public Card(String suit, String val) {
@@ -158,6 +158,7 @@ public class Card implements Comparable<Card> {
 			this.value = Value.ACE;
 			break;
 		}
+		this.jcard = new JLabel(getImage());
 	}
 
 	/*
@@ -336,5 +337,13 @@ public class Card implements Comparable<Card> {
 	 */
 	public boolean isSelected() {
 		return isSelected;
+	}
+	
+	/**
+	 * Sets isSelected to the given boolean value.
+	 * @param a Boolean value
+	 */
+	public void setSelected(boolean a){
+		this.isSelected = a;
 	}
 }

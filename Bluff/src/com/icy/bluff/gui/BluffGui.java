@@ -74,6 +74,8 @@ public class BluffGui extends JPanel {
 	public final JTextField cardCount = new JTextField();
 	public final JTextField lastClaimVal = new JTextField();
 	public final JPanel cardPanel = new JPanel();
+	public final JPanel openCardsPanel = new JPanel();
+	public final JPanel tableCardsPanel = new JPanel();
 
 	/**
 	 * Constructor
@@ -206,7 +208,12 @@ public class BluffGui extends JPanel {
 		infoPanel.add(lastClaimVal);
 		
 		tablePanel.add(cardPanel, BorderLayout.CENTER);
-		cardPanel.setLayout(new CardLayout(0, 0));
+		cardPanel.setLayout(new BorderLayout(0, 0));
+		
+		cardPanel.add(openCardsPanel, BorderLayout.NORTH);
+		
+		cardPanel.add(tableCardsPanel, BorderLayout.CENTER);
+		tableCardsPanel.setLayout(new CardLayout(0, 0));
 		// this.add(new JPanel(),BorderLayout.SOUTH );
 
 		this.add(topPanel);
@@ -218,10 +225,10 @@ public class BluffGui extends JPanel {
 		Player[] players = this.bluff.players;
 		for (int i = 0; i < players[0].hand.size(); ++i) {
 
-			JLabel jc = new JLabel(players[0].hand.get(i).getImage());
-
-			this.playerPanel.add(jc);
-			players[0].hand.get(i).jcard = jc;
+			//JLabel jc = new JLabel(players[0].hand.get(i).getImage());
+			//players[0].hand.get(i).jcard = jc;
+			this.playerPanel.add(players[0].hand.get(i).jcard);
+			
 
 		}
 
@@ -253,7 +260,7 @@ public class BluffGui extends JPanel {
 		int ind = this.bluff.players[0].hand.indexOf(sel);
 		Card cur = this.bluff.players[0].hand.get(ind);
 		cur.setSelected();
-
+		System.out.println("JKART ins : " + sel.jcard);
 		if (cur.isSelected()) {
 			k.setLocation(k.getX(), k.getY() - 10);
 			this.bluff.players[0].holding.add(cur);
@@ -297,12 +304,14 @@ public class BluffGui extends JPanel {
 		this.lastCardCount.setText(""+bluff.numberOfLastCards);
 		this.lastClaimOwner.setText("Player - "+bluff.lastClaimOwner);
 		this.lastClaimVal.setText(""+bluff.lastClaim);
+		JPanel jjj = (JPanel)(this.tablePanel.getComponent(1));
+		JPanel crds = (JPanel)( jjj.getComponent(1) );
 		if(bluff.table.size()==0){
-			( (JPanel)(this.tablePanel.getComponent(1)) ).removeAll();
-		} else  {
-	
-			( (JPanel)(this.tablePanel.getComponent(1)) ).add(new JLabel(new ImageIcon("img/back.jpg")));
+			crds.removeAll();
+		} else  {	
+			crds.add(new JLabel(new ImageIcon("img/back.jpg")));
 		}
 		this.refresh();
 	}
+	
 }
